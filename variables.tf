@@ -1,15 +1,11 @@
 variable "region" {
-  default = "us-east-2"
+  default = "eu-central-1"
 }
 variable "AmiLinux" {
   type = "map"
   default = {
-    us-east-1 = "ami-b73b63a0" # Virginia
-    us-west-2 = "ami-5ec1673e" # Oregon
-    eu-west-1 = "ami-9398d3e0" # Ireland
-    us-east-2 = "ami-ea87a78f" # Ohio
-  }
-  description = "I add only 3 regions (Virginia, Oregon, Ireland) to show the map feature but you can add all the regions that you need"
+    us-east-1 = "ami-d74be5b8"
+  description = "I you can add all the regions that you need"
 }
 /*
 variable "aws_access_key" {
