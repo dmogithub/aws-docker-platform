@@ -30,7 +30,7 @@ resource "aws_instance" "database" {
   associate_public_ip_address = "false"
   subnet_id = "${aws_subnet.PrivateAZA.id}"
   vpc_security_group_ids = ["${aws_security_group.Database.id}"]
-  key_name = "awspoc"
+  key_name = "${var.key_name}"
   tags {
         Name = "database"
   }
