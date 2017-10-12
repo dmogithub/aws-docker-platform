@@ -13,10 +13,10 @@ resource "aws_launch_configuration" "agent-lc" {
         volume_size = "50"
     }
 }
-resource "aws_autoscaling_group" "agents" {
+resource "aws_autoscaling_group" "workers" {
     availability_zones = ["eu-west-1a"]
     vpc_zone_identifier = ["subnet-062a5361"]
-    name = "agents"
+    name = "workers"
     max_size = "20"
     min_size = "1"
     health_check_grace_period = 300
@@ -27,7 +27,26 @@ resource "aws_autoscaling_group" "agents" {
 
     tag {
         key = "Name"
-        value = "Agent Instance"
+        value = "worker Instance"
+        propagate_at_launch = true
+    }
+}
+
+resource "aws_autoscaling_group" "managers" {
+    availability_zones = ["eu-west-1c"]
+    vpc_zone_identifier = ["subnet-2151eb7a"]
+    name = "managers"
+    max_size = "20"
+    min_size = "1"
+    health_check_grace_period = 300
+    health_check_type = "EC2"
+    desired_capacity = 2
+    force_delete = true
+    launch_configuration = "${aws_launch_configuration.agent-lc.name}"
+
+    tag {
+        key = "Name"
+        value = "manager Instance"
         propagate_at_launch = true
     }
 }
