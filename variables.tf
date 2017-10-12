@@ -4,8 +4,9 @@ variable "region" {
 variable "AmiLinux" {
   type = "map"
   default = {
-    us-east-1 = "ami-d74be5b8"
+    eu-central-1 = "ami-d74be5b8"
   description = "I you can add all the regions that you need"
+}
 }
 /*
 variable "aws_access_key" {
