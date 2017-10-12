@@ -2,7 +2,7 @@ resource "aws_launch_configuration" "agent-lc" {
     name_prefix = "agent-lc-"
     image_id = "ami-bb9a6bc2"
     instance_type = "t2.micro"
-    user_data = "sudo yum -y update "
+    user_data = "configure-swarmmode-cluster.sh "
 
     lifecycle {
         create_before_destroy = true
