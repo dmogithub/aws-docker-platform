@@ -4,7 +4,7 @@ resource "aws_instance" "phpapp" {
   associate_public_ip_address = "true"
   subnet_id = "${aws_subnet.PublicAZA.id}"
   vpc_security_group_ids = ["${aws_security_group.FrontEnd.id}"]
-  key_name = "awspoc"
+  key_name = "${var.key_name}"
   tags {
         Name = "phpapp"
   }
