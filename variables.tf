@@ -39,6 +39,10 @@ variable "Subnet-Private-AzA-CIDR" {
   default = "172.28.3.0/24"
   description = "the cidr of the subnet"
 }
+variable "key_name" {
+  default = "awspoc"
+  description = "the ssh key to use in the EC2 machines"
+}
 
 variable "DnsZoneName" {
   default = "linuxacademy.internal"
